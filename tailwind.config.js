@@ -1,11 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+const { nextui } = require("@nextui-org/react");
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     container: {
@@ -16,8 +18,11 @@ module.exports = {
       },
     },
     extend: {
-      backgroundImage: theme => ({
-        'custom-gradient': 'linear-gradient(90deg, rgba(2,0,36,0.7) 0%, rgba(9,9,121,0.7) 100%, rgba(0,212,255,0.7) 100%)',
+      backgroundImage: (theme) => ({
+        "custom-gradient":
+          "linear-gradient(90deg, rgba(2,0,36,0.7) 0%, rgba(9,9,121,0.7) 100%, rgba(0,212,255,0.7) 100%)",
+        "custom-gradient-detail":
+          "linear-gradient(to right,rgb(31.5, 31.5, 73.5) calc((50vw - 170px) - 340px), rgba(95, 55, 128, 0.84) 50%,rgba(77, 23, 23, 0.84) 100%);",
       }),
       colors: {
         border: "hsl(var(--border))",
@@ -75,5 +80,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: [require("tailwindcss-animate"), nextui()],
+};
