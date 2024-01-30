@@ -1,18 +1,21 @@
-import { clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
+// Tailwind CSS classnames
 export function cn(...inputs) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
+// Format date to "Jan 1, 2021"
 export function formateDate(date) {
   return new Date(date).toLocaleDateString("en-US", {
     day: "numeric",
     month: "short",
     year: "numeric",
-  })
+  });
 }
 
+// Api urls for the fetch's url and title
 export const apiUrls = {
   now_playing: {
     url: "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
@@ -30,4 +33,4 @@ export const apiUrls = {
     url: "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1",
     title: "Upcoming",
   },
-}
+};
