@@ -1,10 +1,10 @@
 import { useState } from "react";
-
+// Define the Login component
 export default function Login() {
-
+  // Define the username and password states
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  // Define the handleSubmit function
   const handleSubmit = async (event) => {
     event.preventDefault();
     // Fetch the request token
@@ -16,10 +16,12 @@ export default function Login() {
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyODZkYTRmNTM2ZjQ3NWYxZTQ0Njc0MGUwNTE3OWY2NSIsInN1YiI6IjY0OWI3YmRmNzdjMDFmMDEwYzViZmU5MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xRka_dB0J_kQ_sdM3aPcxQ1LEkMSJzwqwpqtZfKtA48",
       },
     };
+    // Fetch the request token
     const response = await fetch(
       "https://api.themoviedb.org/3/authentication/token/new",
       optionsRequesToken
     );
+    // Get the request token
     const data = await response.json();
     const requestToken = data.request_token;
     console.log(requestToken);
@@ -39,12 +41,14 @@ export default function Login() {
         request_token: requestToken,
       }),
     };
+    // Create a session
     const sessionResponse = await fetch(
       "https://api.themoviedb.org/3/authentication/token/validate_with_login",
       optionsSession
     );
     const sessionData = await sessionResponse.json();
-    console.log(sessionData)
+    console.log(sessionData);
+    // Get the new request token from the session
     const newRequestToken = sessionData.request_token;
 
     // Create a sessionId
@@ -58,12 +62,14 @@ export default function Login() {
       },
       body: JSON.stringify({ request_token: newRequestToken }),
     };
+    // Create a sessionId with the new request token
     const sessionIdResponse = await fetch(
       "https://api.themoviedb.org/3/authentication/session/new",
       optionsSessionId
     );
+    // Get the sessionId from the response
     const sessionIdData = await sessionIdResponse.json();
-    console.log(sessionIdData)
+    console.log(sessionIdData);
     const sessionId = sessionIdData.session_id;
     // Put the sessionId in the session storage
     sessionStorage.setItem("sessionId", sessionId);
@@ -73,7 +79,7 @@ export default function Login() {
       window.location.href = "/";
     }
   };
-
+  // Render the Login component
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <div className="flex flex-col items-center justify-center w-96 h-96 border-2 border-gray-300 rounded-md">
