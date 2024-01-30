@@ -1,10 +1,13 @@
 import { useGetFetch } from "@/hooks/useFetch";
 
+// MovieDetailRender is a component that renders the movie details page
 export default function MovieDetailRender({ movieId }) {
+  // Fetch the movie details
   const { data, loading, hasError } = useGetFetch(
     `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`
   );
 
+  // Fetch the movie credits
   const {
     data: creditsData,
     loading: creditsLoading,
@@ -13,6 +16,7 @@ export default function MovieDetailRender({ movieId }) {
     `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`
   );
 
+  // Fetch the movie recommendations
   const {
     data: recommendationsData,
     loading: recommendationsLoading,
@@ -21,6 +25,7 @@ export default function MovieDetailRender({ movieId }) {
     `https://api.themoviedb.org/3/movie/${movieId}/recommendations?language=en-US&page=1`
   );
 
+  // Render the MovieDetailRender component
   return loading ? (
     <p>Loading...</p>
   ) : (
