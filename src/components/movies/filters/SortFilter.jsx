@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/popover";
 import { useState } from "react";
 
+// Define the sortOptions array
 const sortOptions = [
   {
     value: "popularity.asc",
@@ -59,10 +60,13 @@ const sortOptions = [
   },
 ];
 
+// Define the SortFilter component
 export function SortFilter({ onSelect }) {
+  // Define the open and value states
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
 
+  // Render the SortFilter component
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
