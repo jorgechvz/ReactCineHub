@@ -10,12 +10,15 @@ import {
 } from "@/components/ui/popover";
 import { useState } from "react";
 
+// Define the YearFilter component
 export default function YearFilter({ className, onSelect }) {
+  // Define the date state
   const [date, setDate] = useState({
     from: "",
     to: "",
   });
 
+  // Render the YearFilter component
   return (
     <div className={cn("grid gap-2", className)}>
       <Popover>
@@ -50,7 +53,7 @@ export default function YearFilter({ className, onSelect }) {
             defaultMonth={date?.from}
             selected={date}
             onSelect={(currentDate) => {
-              setDate(currentDate)
+              setDate(currentDate);
               onSelect(currentDate);
             }}
             numberOfMonths={3}
