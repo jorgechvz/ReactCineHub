@@ -4,13 +4,16 @@ import { SortFilter } from "./filters/SortFilter";
 import YearFilter from "./filters/YearFilter";
 import VoteAverage from "./filters/VoteAverageFilter";
 import RuntimeFilter from "./filters/RuntimeFilter";
+
+// Define the MovieFilter component
 export default function MovieFilter({
   onSelectSortFilter,
   onSelectGenreFilter,
   onSelectDateFilter,
   onSelectVoteAverageFilter,
-  onSelectRuntimeFilter
+  onSelectRuntimeFilter,
 }) {
+  // Render the MovieFilter component
   return (
     <section className="space-y-10">
       <div className="shadow-xl px-2 py-3 shadow-secondary-foreground rounded-xl">
