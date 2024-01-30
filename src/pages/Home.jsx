@@ -3,6 +3,7 @@ import MainHome from "@/components/home/MainHome";
 import Navbar from "@/components/ui/Navbar";
 
 function Home() {
+  // Render the Home Page component
   return (
     <>
       <Navbar />
