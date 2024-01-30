@@ -1,12 +1,16 @@
 import { cn } from "@/lib/utils";
 import { Slider } from "@nextui-org/react";
 import { useState } from "react";
+
+// Define the RuntimeFilter component
 export default function RuntimeFilter({ onSelect }) {
+  // Define the runtime state
   const [runtime, setRuntime] = useState({
     from: null,
     to: null,
   });
 
+  // Render the RuntimeFilter component
   return (
     <Slider
       size="lg"
