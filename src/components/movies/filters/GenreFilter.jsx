@@ -2,17 +2,23 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useGetFetch } from "@/hooks/useFetch";
 import { useState } from "react";
 
+// Define the GenreFilter component
 export default function GenreFilter({ onSelect }) {
+  // Fetch the genres
   const { data, loading, hasError } = useGetFetch(
     "https://api.themoviedb.org/3/genre/movie/list?language=en"
   );
 
+  // Define the checkedItems state
   const [checkedItems, setCheckedItems] = useState({});
 
+  // Define the handleChange function
   const handleChange = (id, isChecked) => {
     setCheckedItems((prev) => ({ ...prev, [id]: isChecked }));
     onSelect(id, isChecked);
   };
+
+  // Render the GenreFilter component
   return loading ? (
     <div>Loading...</div>
   ) : (
