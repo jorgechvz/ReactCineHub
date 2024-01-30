@@ -2,6 +2,7 @@ import { useGetFetch } from "@/hooks/useFetch";
 import Trending from "@/components/home/MovieSection";
 import { apiUrls } from "@/lib/utils";
 
+// Define the MainHome component
 export default function MainHome() {
   // Fetch data for Trending movies
   const {
@@ -27,7 +28,7 @@ export default function MainHome() {
     loading: upcomingLoading,
     hasError: upcomingError,
   } = useGetFetch(apiUrls.upcoming.url);
-
+  // Render the MainHome component
   return (
     <main className="max-w-7xl m-auto">
       {trendingLoading ? (
