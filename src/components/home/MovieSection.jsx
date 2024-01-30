@@ -1,9 +1,9 @@
 import { formateDate } from "@/lib/utils";
 import { Link } from "react-router-dom";
 
-
+// Define the Trending component
 export default function Trending({ seccionName,data }) {
-  
+  // Render the Trending component
   return (
     <div className="m-4 px-6">
       <h2 className="py-4">{seccionName}</h2>
